@@ -1,4 +1,4 @@
-Breathe ESG - Analyst Portal (Data Ingestion Engine)
+# Breathe ESG - Analyst Portal (Data Ingestion Engine)
 
 This repository contains the prototype for a multi-tenant ESG (Environmental, Social, and Governance) data ingestion engine, built as a technical assessment for Breathe ESG. 
 
@@ -9,7 +9,7 @@ The system allows ESG analysts to upload raw corporate data from disparate sourc
 * **Multi-Format Parsing:** Native handlers for CSVs (SAP, Utilities) and JSON payloads (Concur API).
 * **Automated Anomaly Detection:** Flags unmapped facilities, negative quantities, non-standard billing cycles, and invalid IATA airport codes.
 * **State Machine & Audit Trail:** Records are locked upon approval, with all state changes logged for compliance.
-* **Dynamic Frontend Analytics:** Real-time calculation of approval rates and processing metrics.
+* **Dynamic Frontend Analytics:** Real-time calculation of approval rates, processing metrics, and ledger counts directly from the database.
 
 ## 📚 Architectural Documentation
 To understand the engineering choices behind this prototype, please review the following documents:
@@ -19,7 +19,7 @@ To understand the engineering choices behind this prototype, please review the f
 * [TRADEOFFS.md](./TRADEOFFS.md) - Known limitations and future production iterations.
 
 ## 🛠️ Tech Stack
-* **Backend:** Python, Django, Django REST Framework, SQLite (Local)
+* **Backend:** Python, Django, Django REST Framework, SQLite (Local prototype database)
 * **Frontend:** React 18, Vite, Axios, Lucide Icons
 * **Data Processing:** Python `csv`, `json`, and custom Haversine math logic.
 
@@ -46,8 +46,10 @@ python manage.py migrate
 
 # Start the server (runs on port 8000)
 python manage.py runserver
-2. Frontend (React)
-Bash
+```
+
+### 2. Frontend (React)
+```bash
 # Open a second terminal window
 # Navigate to the root directory
 cd breathe-esg-prototype
@@ -57,11 +59,10 @@ npm install
 
 # Start the Vite development server (runs on port 5173)
 npm run dev
-🧪 Testing the Engine
-A sample_data/ folder is included in this repository. You can use these files in the React frontend to trigger the automated anomaly detection:
+```
 
-sap_al11_export.csv (Triggers "Unmapped Facility" and "Negative Quantity" flags).
-
-utility_portal_export.csv (Triggers "Irregular 45-day Billing Cycle" flag).
-
-concur_api_mock.json (Triggers "Unknown IATA Code" flag while calculating valid flight distances).
+## 🧪 Testing the Engine
+A `sample_data/` folder is included in this repository. You can use these files in the React frontend to trigger the automated anomaly detection:
+1. **`sap_al11_export.csv`** (Triggers "Unmapped Facility" and "Negative Quantity" flags).
+2. **`utility_portal_export.csv`** (Triggers "Irregular 45-day Billing Cycle" flag).
+3. **`concur_api_mock.json`** (Triggers "Unknown IATA Code" flag while calculating valid flight distances).
