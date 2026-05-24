@@ -1,5 +1,8 @@
 # Breathe ESG - Analyst Portal (Data Ingestion Engine)
 
+🟢 **Live Demo:** [Click here to view the deployed application](https://breathe-esg-prototype-1.onrender.com/)
+*(Note: The backend is hosted on a free Render tier and may take 30-50 seconds to spin up on the first upload).*
+
 This repository contains the prototype for a multi-tenant ESG (Environmental, Social, and Governance) data ingestion engine, built as a technical assessment for Breathe ESG. 
 
 The system allows ESG analysts to upload raw corporate data from disparate sources, normalizes it into standard GHG Protocol scopes, and utilizes a state machine (`RAW` -> `FLAGGED` -> `APPROVED`) to catch business-logic anomalies before the data enters the immutable emissions ledger.
