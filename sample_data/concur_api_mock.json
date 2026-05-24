@@ -1,0 +1,30 @@
+{
+  "report_id": "EXP-9921",
+  "employee_id": "EMP-404",
+  "trips": [
+    {
+      "trip_id": "TRP-001",
+      "date": "2026-03-10",
+      "type": "FLIGHT",
+      "segments": [
+        {"origin": "JFK", "destination": "LHR", "class": "ECONOMY"}
+      ]
+    },
+    {
+      "trip_id": "TRP-002",
+      "date": "2026-03-15",
+      "type": "FLIGHT",
+      "segments": [
+        {"origin": "SFO", "destination": "LAX", "class": "BUSINESS"}
+      ]
+    },
+    {
+      "trip_id": "TRP-003",
+      "date": "2026-03-20",
+      "type": "FLIGHT",
+      "segments": [
+        {"origin": "LHR", "destination": "XYZ", "class": "ECONOMY"}
+      ]
+    }
+  ]
+}
